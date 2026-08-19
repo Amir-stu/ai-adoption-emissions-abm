@@ -7,11 +7,11 @@ be doubted.
 
 | Group | Meaning |
 | --- | --- |
-| **A. Measured** | taken from an emissions, energy or grid account |
-| **B. Measured** | firm population structure |
-| **C. Transferred** | estimated in another setting; could be wrong by a factor |
-| **D. Calibrated** | benchmarked to a published pattern, not observed at the firm |
-| **E. Scenario** | not an estimate at all; swept, and the sign of the result turns on it |
+| A. Measured | taken from an emissions, energy or grid account |
+| B. Measured | firm population structure |
+| C. Transferred | estimated in another setting; could be wrong by a factor |
+| D. Calibrated | benchmarked to a published pattern, not observed at the firm |
+| E. Scenario | not an estimate at all; swept, and the sign of the result turns on it |
 
 `tests/test_thesis_values.py` asserts the values below against the code, so the
 two cannot drift apart silently.
@@ -26,7 +26,7 @@ two cannot drift apart silently.
 | --- | --- | --- | --- | --- |
 | 0.04048 | 0.21120 | 0.38378 | 0.55540 | 0.60818 |
 
-**Source.** Ember, *Yearly Electricity Data* (2024 values), republished by Our World
+Source. Ember, *Yearly Electricity Data* (2024 values), republished by Our World
 in Data: <https://ourworldindata.org/grapher/carbon-intensity-electricity>
 
 **How to re-check.** Download the CSV and filter `Year = 2024`. Read the CSV, not a
@@ -39,10 +39,10 @@ rendered chart: during this work the US value came back three different ways
 | --- | --- | --- | --- | --- |
 | 2.51% | 4.73% | 3.17% | 2.20% | 3.22% |
 
-**Source.** The annualised 2014→2024 decline in the same Ember/OWID series,
+Source. The annualised 2014→2024 decline in the same Ember/OWID series,
 `1 − (v₂₀₂₄/v₂₀₁₄)^(1/10)`.
 
-**Why it matters.** These rates reverse which grid is dirtiest by 2040: Poland
+Why it matters. These rates reverse which grid is dirtiest by 2040: Poland
 starts dirtier, but decarbonises faster, so China becomes the binding case. A
 uniform decarbonisation assumption hides that. The ten-year rate is used rather
 than the five-year, because France's five-year figure (7.50%) is distorted by the
@@ -64,7 +64,7 @@ it is computed per country as the firm's own electricity priced at its own grid,
 a firm on a coal grid carries the Scope 2 burden of that grid on both sides of
 Eq. (5.5).
 
-**Sources** — all Eurostat, EU-27, via the dissemination API:
+Sources — all Eurostat, EU-27, via the dissemination API:
 
 - Scope 1: `env_ac_ainah_r2`, `airpol = CO2`, `unit = THS_T`, 2023
 - Electricity: `env_ac_pefasu`, `prod_nrg = P26`, `stk_flow = USE`, `unit = TJ`, 2022,
@@ -80,7 +80,7 @@ minus those · Transport & Storage = H · Finance = K · Accommodation & Food = 
 2. PEFA carries no C21/C26/C27 detail, so manufacturing electricity is allocated
    pro rata per enterprise across C.
 
-**Why Scope 2 is in the baseline.** The cost side of Eq. (5.5) is electricity × grid
+Why Scope 2 is in the baseline.The cost side of Eq. (5.5) is electricity × grid
 intensity, which is a Scope 2 quantity. Setting it against a Scope 1 benefit alone
 would compare two different accounting boundaries. Eurostat's air emissions accounts
 attribute purchased-electricity emissions to NACE D rather than to the consuming
@@ -96,7 +96,7 @@ above.
 
 ## B. Measured — firm population structure
 
-**Firm-size shares.** 45% small, 36% medium, 18% large, from the EIBIS distribution
+Firm-size shares.45% small, 36% medium, 18% large, from the EIBIS distribution
 reported by Aldasoro et al. (2026). The code draws from an eleven-element tuple
 (5/4/2), i.e. 45.5 / 36.4 / 18.2%.
 
@@ -112,7 +112,7 @@ study: −2.0% energy, −1.8% energy intensity, −2.3% carbon emission intensi
 two to three years of adoption. Effects concentrate in large, non-state and
 technology-intensive firms.
 
-**How it is used.** As a *transferred benchmark*, not a European estimate: it is
+How it is used. As a *transferred benchmark*, not a European estimate: it is
 identified on Chinese firms, on a revenue-denominated intensity, with adoption
 proxied by capital intensity. Medium and large firms carry it; small firms take the
 point estimate implied by an insignificant coefficient, which is zero. It is not
@@ -125,7 +125,7 @@ secure.
 
 ### Rebound coefficient `ζ ∈ {0, 0.10, 0.20, 0.30}`
 
-**Source.** Sorrell, Dimitropoulos & Sommerville (2009), *Energy Policy*,
+Source. Sorrell, Dimitropoulos & Sommerville (2009), *Energy Policy*,
 doi:10.1016/j.enpol.2008.11.026: direct rebound in road transport, 10–12% in the
 short run and 26–29% in the long run, from the best-studied case. No AI-specific
 estimate exists, which is why `ζ` is swept and why Table 6.3 reports the `ζ*` at
@@ -146,7 +146,7 @@ measured.
 
 Partial adopter `U(0.5%, 1.5%)`, full adopter `U(1.5%, 4.0%)`.
 
-**Anchor.** IEA, *Energy and AI* (2025): data centres consumed roughly 415 TWh in
+Anchor. IEA, *Energy and AI* (2025): data centres consumed roughly 415 TWh in
 2024, about 1.5% of world electricity, rising towards 3% by 2030; AI is 5–15% of
 data-centre load now, projected at 35–50% by 2030. AI therefore approaches 1–1.5% of
 all electricity by 2030, concentrated in adopters — so an adopting firm sits above
@@ -155,11 +155,11 @@ that economy-wide mean, which is the range above.
 
 ### Adoption intensity `A(N/P/F) = 0 / 0.375 / 0.75`
 
-**Source.** McKinsey, *The State of AI: Global Survey* (2025): 88% of organisations
+Source. McKinsey, *The State of AI: Global Survey* (2025): 88% of organisations
 use AI in at least one business function, and adopters average three functions.
 Three of eight functions is 0.375; a full adopter is set at six of eight.
 
-**Caveat.** The function count is measured; the step from a function count to a share
+Caveat. The function count is measured; the step from a function count to a share
 of a firm's *emissions-generating activity* is an interpretation. That is why this
 sits in group D and not in group A.
 
@@ -190,13 +190,13 @@ the European productivity estimate makes plausible.
 
 ## Model rules that are not parameters
 
-1. **A renewable mandate is a ceiling, not a replacement.** `min(G_c(t), ceiling)`.
+1. A renewable mandate is a ceiling, not a replacement. `min(G_c(t), ceiling)`.
    Applied unconditionally it would *raise* emissions on a grid already cleaner than
    the floor — which is exactly what happened to France in an earlier draft of
    Table 6.2.
-2. **The combined-policy adoption boost is an internal benchmark, not a free
-   parameter.** Every firm adopts on the coefficients of the fastest sector actually
+2. The combined-policy adoption boost is an internal benchmark, not a free
+   parameter. Every firm adopts on the coefficients of the fastest sector actually
    observed in the EIBIS gradient (ICT), so no value has to be chosen.
-3. **The seed includes the policy name.** Two numerically identical policy cells
+3. The seed includes the policy name. Two numerically identical policy cells
    therefore differ by roughly ±1 tCO₂/yr at N = 200. Differences below about
    1.5 tCO₂/yr between policy cells are simulation noise, not policy effects.
