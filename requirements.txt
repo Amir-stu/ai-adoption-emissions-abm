@@ -1,0 +1,6 @@
+# Minimum versions. The committed results were produced with the versions
+# noted alongside, on Python 3.13.14.
+numpy>=1.26          # verified with 2.4.3
+pandas>=2.0          # verified with 3.0.1
+matplotlib>=3.8      # verified with 3.10.8
+seaborn>=0.13        # verified with 0.13.2

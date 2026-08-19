@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: >-
+  AI Adoption, Labour Productivity, and Carbon Emissions —
+  agent-based simulation code
+message: >-
+  If you use this software, please cite the thesis it
+  supports.
+type: software
+version: 1.0.0
+date-released: "2026-08-19"
+authors:
+  - family-names: Ben Khadher
+    given-names: Amir
+    affiliation: University of Mannheim
+abstract: >-
+  Agent-based simulation of AI adoption in a heterogeneous
+  population of firms, and of its net effect on operational
+  carbon emissions. Adoption spreads through a
+  sector-specific innovation-and-imitation hazard; each
+  agent's net effect sets an AI-induced fall in carbon
+  intensity against the emissions of the electricity AI
+  consumes, priced at its national grid. The code reproduces
+  every table and figure of Chapters 4 to 6 of the
+  supporting bachelor thesis, including the break-even
+  analysis that locates the output-scale response at which
+  the net effect changes sign.
+keywords:
+  - agent-based model
+  - artificial intelligence
+  - carbon emissions
+  - rebound effect
+  - labour productivity
+  - environmental economics
+  - reproducible research
+repository-code: https://github.com/Amir-stu/ai-adoption-emissions-abm
+license: MIT
+references:
+  - type: thesis
+    title: >-
+      The Double-Edged Sword: AI Adoption, Labour
+      Productivity, and Carbon Emissions
+    authors:
+      - family-names: Ben Khadher
+        given-names: Amir
+    year: 2026
+    institution:
+      name: University of Mannheim
+    thesis-type: Bachelor's Thesis in Economics

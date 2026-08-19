@@ -1,0 +1,7 @@
+sector,E_base_tCO2e_per_yr,AI_kWh_per_yr,G_star_g0,G_star_g1,G_star_g2,net_EU_grid_tCO2e_per_yr
+Transport & Storage,4164,25300,2.84,1.63,0.41,66.5
+Manufacturing,2594,68750,0.65,0.37,0.09,30.2
+Finance,556,27225,0.35,0.2,0.05,3.8
+Electronics & Pharma,928,68750,0.23,0.13,0.03,1.5
+Accommodation & Food,135,9625,0.24,0.14,0.04,0.3
+ICT,268,24200,0.19,0.11,0.03,-0.5
